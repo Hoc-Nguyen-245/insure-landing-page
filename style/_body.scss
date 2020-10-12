@@ -1,0 +1,300 @@
+main {
+    width: 100%;
+    height: 100%;
+}
+
+.line {
+    display:block;
+    width: 100px;
+    height: 1px;
+    background-color:white;
+    margin-bottom: 50px;
+}
+
+.heading {
+    @include heading;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 0.9;
+}
+
+#intro {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding-bottom: 150px;
+    #intro-image-mobile {
+        display:none;
+        width: 100%;
+        height: 100%;
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+    #intro-content {
+        width: 100%;
+        height: 100%;
+        padding:0px 20px;
+        background-color: var(--primary-dark-violet);
+        margin-bottom: 30px;
+        #intro-content-container {
+            width: 100%;
+            max-width: 1000px;
+            margin:0px auto;
+            position: relative;
+            padding: 60px 0px 100px 0px;
+            #description {
+                width: 50%;
+                padding-right: 20px;
+                color:white;
+                #content {
+                    @include body_regular;
+                    font-size: 0.8rem;
+                    line-height: 1.8;
+                    margin-bottom: 30px;
+                }
+                .view-plans {
+                    border-color: white;
+                    span {
+                        color: white;
+                    }
+                    &:hover {
+                        background-color: white;
+                    }
+                    &:hover span {
+                        color: var(--primary-dark-violet);
+                    }
+                }
+            }
+            #image {
+                position: absolute;
+                width: 50%;
+                height: 500px;
+                top:60px;
+                right:0px;
+                background-image: url('../assets/img/image-intro-desktop.jpg');
+                background-size: cover;
+                background-position: center  center;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    #pattern {
+        position: absolute;
+        top:0px;
+        left:0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 0;
+        pointer-events: none;
+        .intro-pattern {
+            position: absolute;
+            width: 100%;
+            height: calc(100% + 20px);
+            top:0px;
+            left:0px;
+            pointer-events: none;
+            &.desktop {
+                background-image: url('../assets/img/bg-pattern-intro-left-desktop.svg'), url('../assets/img/bg-pattern-intro-right-desktop.svg');
+                background-repeat: no-repeat;
+                background-position: bottom left, top right;
+                background-size: 10% auto, 25% auto;
+            }
+            &.mobile {
+                display:none;
+                background-image:  url('../assets/img/bg-pattern-intro-right-mobile.svg');
+                background-repeat: no-repeat;
+                background-position: bottom right;    
+            }
+        }
+    }
+}
+
+#about {
+    width: 100%;
+    height: 100%;
+    padding:0px 20px;
+    #about-container {
+        width: 100%;
+        max-width: 1000px;
+        margin:0px auto;
+        .line {
+            background-color: var(--primary-dark-violet);
+        }
+        .heading {
+            color: var(--primary-dark-violet);
+            margin-bottom: 50px;
+        }
+        #detail {
+            width: 100%;
+            display:flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 80px;
+            .items {
+                width: 100%;
+                flex-basis: 30%;
+                color: var(--primary-dark-violet);
+                .icon {
+                    width: 50px;
+                    height: 50px;
+                    display: block;
+                    background-size: contain;
+                    background-position: left top;
+                    background-repeat: no-repeat;
+                    margin-bottom: 20px;
+                    transition: all 0.2s ease;
+                    &:hover {
+                        transform: scale(1.1, 1.1);
+                    }
+                    &.s-01 {
+                        background-image: url('../assets/img/icon-snappy-process.svg');
+                    }
+                    &.s-02 {
+                        background-image: url('../assets/img/icon-affordable-prices.svg');
+                    }
+                    &.s-03 {
+                        background-image: url('../assets/img/icon-people-first.svg');
+                    }
+                }
+                .title {
+                    font-size: 1.2rem;
+                    @include heading;
+                    margin-bottom: 10px;
+                }
+                & :last-child {
+                    @include body_regular;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+#how-we-work {
+    width: 100%;
+    height: 100%;
+    padding:0px 20px;
+    margin-bottom: 80px;
+    #h-w-w-container {
+        width: 100%;
+        max-width: 1000px;
+        margin:0px auto;
+        padding:60px;
+        background-color:var(--primary-dark-violet);
+        background-image: url('../assets/img/bg-pattern-how-we-work-desktop.svg');
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        &.mobile {
+            background-image: url('../assets/img/bg-pattern-how-we-work-mobile.svg');
+        }
+        #text {
+            color:white;
+            .heading {
+                margin-bottom: 0px;
+            }
+        }
+        .view-plans {
+            border-color: white;
+            span {
+                color: white;
+            }
+            &:hover{
+                background-color: white;
+            }
+            &:hover span {
+                color: var(--primary-dark-violet);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:700px) {
+    #intro {
+        #intro-content {
+            #intro-content-container {
+                #description {
+                    width: 100%;
+                    flex-basis: 100%;
+                }
+                #image {
+                    display:none;
+                }
+            }
+        }
+    }
+    #how-we-work {
+        #h-w-w-container {
+            flex-flow: column wrap;
+            text-align: center;
+            #text {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 450px) {
+    #intro {
+        #intro-image-mobile {
+            display:block;
+        }
+        #intro-content {
+            background-image: url('../assets/img/bg-pattern-intro-left-mobile.svg');
+            background-position: top left;
+            background-repeat: no-repeat;
+            #intro-content-container { 
+                #description {
+                    text-align: center;
+                    padding-right: 0px;
+                    .line {
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+        #pattern {
+            .intro-pattern.desktop {
+                display:none;
+            }
+            .intro-pattern.mobile {
+                display:block;
+            }
+        }
+    }
+    #about {
+        #about-container {
+            text-align: center;
+            .line {
+                display:inline-block;
+            }
+            .heading {
+                margin-bottom: 20px;
+            }
+            #detail {
+                flex-flow: column wrap;
+                .items {
+                    margin-top: 50px;
+                    text-align: center;
+                    .icon {
+                        display:inline-block;
+                    }
+                }
+            }
+        }
+    }
+    #how-we-work {
+        #h-w-w-container {
+            padding-left: 20px;
+            padding-right: 20px;
+            background-image: url('../assets/img/bg-pattern-how-we-work-mobile.svg');
+        }
+    }
+}
